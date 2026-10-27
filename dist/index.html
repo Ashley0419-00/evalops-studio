@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="EvalOps Studio：AI 模型评测、Bad Case 分析、Prompt 版本和发布门禁作品集。">
+  <title>EvalOps Studio · AI 模型评测与运营平台</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#overview" aria-label="EvalOps Studio 首页">
+      <span class="brand-mark">E</span><span>EvalOps<br><small>STUDIO</small></span>
+    </a>
+    <nav aria-label="主导航">
+      <button class="nav-item active" data-view="overview"><span>⌁</span>总览</button>
+      <button class="nav-item" data-view="evaluation"><span>◎</span>模型评测</button>
+      <button class="nav-item" data-view="badcases"><span>△</span>Bad Cases</button>
+      <button class="nav-item" data-view="prompts"><span>⌘</span>Prompt Lab</button>
+      <button class="nav-item" data-view="release"><span>✓</span>发布门禁</button>
+    </nav>
+    <div class="side-foot"><span class="status-dot"></span> Demo workspace<br><small>Portfolio case study</small></div>
+  </aside>
+
+  <main>
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">AI QUALITY OPERATIONS</p>
+        <h1 id="page-title">评测运营总览</h1>
+      </div>
+      <div class="top-actions">
+        <span class="demo-pill">ILLUSTRATIVE DATA</span>
+        <select id="scenarioSelect" aria-label="选择评测场景">
+          <option value="service">智能客服 Agent</option>
+          <option value="sales">销售助手 Agent</option>
+          <option value="knowledge">企业知识问答</option>
+        </select>
+        <button class="primary" id="runBtn">运行评测</button>
+      </div>
+    </header>
+
+    <section class="view active" id="overview">
+      <div class="hero-grid">
+        <article class="hero-copy panel">
+          <p class="kicker">CASE 01 · CUSTOMER SERVICE AGENT</p>
+          <h2>让模型上线，从“感觉不错”变成<span>可量化决策</span></h2>
+          <p>统一管理质量、成本、延迟与风险指标；将 Bad Case 转化为 Prompt 和产品迭代，并用发布门禁阻止退化版本进入生产。</p>
+          <div class="hero-actions"><button class="text-btn" data-jump="evaluation">查看评测结果 →</button><span>v2.4 · 2026-10-27</span></div>
+        </article>
+        <article class="gate-card panel">
+          <div class="gate-head"><span>RELEASE GATE</span><b id="gateScore">4 / 5</b></div>
+          <div class="ring" style="--p:80"><strong>80%</strong><small>READY</small></div>
+          <p><span class="warning-dot"></span> 成本指标仍需优化</p>
+          <button class="secondary" data-jump="release">查看门禁详情</button>
+        </article>
+      </div>
+
+      <div class="metrics" id="metricCards">
+        <article class="metric"><span>综合通过率</span><strong>87.4%</strong><em class="up">↑ 5.8%</em><div class="spark"><i style="height:38%"></i><i style="height:52%"></i><i style="height:49%"></i><i style="height:68%"></i><i style="height:82%"></i></div></article>
+        <article class="metric"><span>幻觉率</span><strong>3.2%</strong><em class="up">↓ 1.1%</em><div class="spark"><i style="height:74%"></i><i style="height:60%"></i><i style="height:65%"></i><i style="height:45%"></i><i style="height:29%"></i></div></article>
+        <article class="metric"><span>P95 延迟</span><strong>1.84s</strong><em class="up">↓ 0.22s</em><div class="spark"><i style="height:70%"></i><i style="height:58%"></i><i style="height:63%"></i><i style="height:42%"></i><i style="height:36%"></i></div></article>
+        <article class="metric"><span>千次会话成本</span><strong>¥18.6</strong><em class="down">↑ ¥1.4</em><div class="spark danger"><i style="height:34%"></i><i style="height:42%"></i><i style="height:39%"></i><i style="height:55%"></i><i style="height:68%"></i></div></article>
+      </div>
+
+      <div class="two-col">
+        <article class="panel chart-panel">
+          <div class="panel-title"><div><p class="eyebrow">QUALITY TREND</p><h3>近 6 个版本质量趋势</h3></div><span class="legend"><i></i>通过率 <i class="purple"></i>业务完成率</span></div>
+          <svg class="line-chart" viewBox="0 0 680 240" role="img" aria-label="质量趋势折线图">
+            <g class="grid"><line x1="40" y1="30" x2="650" y2="30"/><line x1="40" y1="85" x2="650" y2="85"/><line x1="40" y1="140" x2="650" y2="140"/><line x1="40" y1="195" x2="650" y2="195"/></g>
+            <path class="area" d="M40 180 C120 170 125 150 175 145 S260 115 300 126 S390 92 430 100 S520 67 555 75 S620 45 650 48 L650 210 L40 210Z"/>
+            <path class="line green" d="M40 180 C120 170 125 150 175 145 S260 115 300 126 S390 92 430 100 S520 67 555 75 S620 45 650 48"/>
+            <path class="line violet" d="M40 193 C105 175 130 182 175 166 S255 146 300 151 S380 124 430 132 S510 100 555 111 S610 82 650 88"/>
+            <g class="xlabels"><text x="38" y="232">v1.9</text><text x="164" y="232">v2.0</text><text x="290" y="232">v2.1</text><text x="420" y="232">v2.2</text><text x="545" y="232">v2.3</text><text x="632" y="232">v2.4</text></g>
+          </svg>
+        </article>
+        <article class="panel issue-panel">
+          <div class="panel-title"><div><p class="eyebrow">ROOT CAUSE</p><h3>失败原因分布</h3></div><button class="icon-btn" data-jump="badcases">↗</button></div>
+          <div class="donut-row">
+            <div class="donut"><strong>126</strong><small>失败样本</small></div>
+            <ul><li><i class="c1"></i><span>知识召回不足</span><b>38%</b></li><li><i class="c2"></i><span>指令遵循偏差</span><b>27%</b></li><li><i class="c3"></i><span>多轮上下文丢失</span><b>21%</b></li><li><i class="c4"></i><span>安全与合规</span><b>14%</b></li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="view" id="evaluation">
+      <div class="section-intro"><div><p class="eyebrow">EVALUATION MATRIX</p><h2>模型与 Prompt 对比</h2><p>同一数据集、同一评分规则下比较候选方案，避免“只看单项分数”。</p></div><div class="run-state"><span></span>最后运行：刚刚</div></div>
+      <div class="panel table-wrap">
+        <table><thead><tr><th>方案</th><th>任务完成</th><th>事实准确</th><th>安全合规</th><th>P95 延迟</th><th>成本 / 1K</th><th>建议</th></tr></thead>
+          <tbody>
+            <tr class="recommended"><td><b>Model A · Prompt v2.4</b><small>balanced route</small></td><td><span class="score good">91.2</span></td><td>94.1</td><td>99.3</td><td>1.84s</td><td>¥18.6</td><td><span class="tag green-tag">推荐发布</span></td></tr>
+            <tr><td><b>Model B · Prompt v2.4</b><small>quality route</small></td><td><span class="score">93.8</span></td><td>95.6</td><td>99.5</td><td>3.26s</td><td>¥36.4</td><td><span class="tag amber-tag">灰度验证</span></td></tr>
+            <tr><td><b>Model C · Prompt v2.3</b><small>cost route</small></td><td><span class="score">82.7</span></td><td>87.9</td><td>97.8</td><td>1.21s</td><td>¥8.9</td><td><span class="tag red-tag">暂缓发布</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="three-col">
+        <article class="panel rubric"><p class="eyebrow">RUBRIC</p><h3>评分标准</h3><div><b>40%</b><span>任务完成度<small>是否解决用户核心诉求</small></span></div><div><b>30%</b><span>事实准确性<small>回答是否可被知识库支持</small></span></div><div><b>20%</b><span>安全与合规<small>隐私、越权与敏感内容</small></span></div><div><b>10%</b><span>表达体验<small>清晰、简洁、符合语气</small></span></div></article>
+        <article class="panel insight-card"><p class="eyebrow">PRODUCT INSIGHT</p><h3>为什么选择 A？</h3><p>方案 B 的质量领先 2.6 分，但延迟和成本分别高出 77% 与 96%。在客服高频场景中，方案 A 达到质量阈值且单位经济性更优。</p><div class="callout">决策原则：先满足质量底线，再优化成本与体验。</div></article>
+        <article class="panel coverage"><p class="eyebrow">DATASET</p><h3>测试集覆盖</h3><div class="coverage-num">1,000<small>条标注样本</small></div><div class="barline"><span>高频问答</span><i><b style="width:44%"></b></i><em>44%</em></div><div class="barline"><span>复杂多轮</span><i><b style="width:31%"></b></i><em>31%</em></div><div class="barline"><span>边界安全</span><i><b style="width:25%"></b></i><em>25%</em></div></article>
+      </div>
+    </section>
+
+    <section class="view" id="badcases">
+      <div class="section-intro"><div><p class="eyebrow">FAILURE ANALYSIS</p><h2>Bad Case 工作台</h2><p>从失败样本到可执行的产品、Prompt 或数据改进项。</p></div><div class="filters"><button class="filter active" data-filter="all">全部</button><button class="filter" data-filter="high">高风险</button><button class="filter" data-filter="open">待处理</button></div></div>
+      <div class="badcase-grid" id="badcaseGrid">
+        <article class="case panel" data-severity="high" data-status="open"><div class="case-top"><span class="tag red-tag">高风险 · 待处理</span><small>BC-1048</small></div><h3>退款政策产生无依据承诺</h3><p><b>用户：</b>过了 7 天还能全额退款吗？</p><p class="model-answer"><b>模型：</b>可以，我们支持 30 天无理由全额退款。</p><div class="cause"><span>根因</span>知识召回失败后，模型使用通用电商经验补全。</div><div class="fix"><b>改进项</b><p>增加政策检索强制校验；无证据时输出转人工模板。</p></div></article>
+        <article class="case panel" data-severity="medium" data-status="open"><div class="case-top"><span class="tag amber-tag">中风险 · 待处理</span><small>BC-1031</small></div><h3>多轮对话遗失设备型号</h3><p><b>用户：</b>上文的 X200 如何重置网络？</p><p class="model-answer"><b>模型：</b>请先确认您的具体设备型号。</p><div class="cause"><span>根因</span>上下文压缩未保留关键实体。</div><div class="fix"><b>改进项</b><p>将产品型号加入不可丢弃实体；补充 20 条多轮回归集。</p></div></article>
+        <article class="case panel" data-severity="low" data-status="closed"><div class="case-top"><span class="tag green-tag">低风险 · 已关闭</span><small>BC-0996</small></div><h3>答案冗长，解决步骤不突出</h3><p><b>用户：</b>怎么修改绑定手机号？</p><p class="model-answer"><b>模型：</b>输出 8 段背景介绍后才给出步骤。</p><div class="cause"><span>根因</span>Prompt 未约束信息优先级。</div><div class="fix"><b>验证结果</b><p>首屏步骤化后，人工可用性评分由 3.6 提升至 4.5。</p></div></article>
+      </div>
+    </section>
+
+    <section class="view" id="prompts">
+      <div class="section-intro"><div><p class="eyebrow">PROMPT VERSIONING</p><h2>Prompt Lab</h2><p>对比版本差异、评测影响和回滚条件。</p></div><select id="promptVersion"><option value="v24">v2.4 · Candidate</option><option value="v23">v2.3 · Production</option><option value="v22">v2.2 · Archived</option></select></div>
+      <div class="prompt-layout">
+        <article class="panel prompt-editor"><div class="editor-head"><span>SYSTEM PROMPT</span><span id="versionBadge">v2.4</span></div><pre id="promptText">你是企业智能客服助手。\n\n回答规则：\n1. 优先使用检索结果回答，不得编造政策。\n2. 证据不足时明确说明，并提供人工入口。\n3. 涉及账户、退款或隐私时执行安全校验。\n4. 先给结论，再提供不超过 4 个操作步骤。\n\n输出：结论 / 操作步骤 / 证据来源</pre></article>
+        <div class="prompt-side">
+          <article class="panel delta"><p class="eyebrow">CHANGE IMPACT</p><h3>v2.4 变更影响</h3><ul><li><span class="plus">+5.8%</span>综合通过率</li><li><span class="plus">-1.1%</span>幻觉率</li><li><span class="minus">+¥1.4</span>千次成本</li></ul></article>
+          <article class="panel"><p class="eyebrow">EXPERIMENT NOTE</p><h3>实验结论</h3><p>强制证据校验显著降低政策幻觉；结构化输出提升首次解决率，但平均输出 Token 增加 8.6%。下一步将压缩解释段落。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="view" id="release">
+      <div class="section-intro"><div><p class="eyebrow">GO / NO-GO</p><h2>发布门禁</h2><p>把评测指标转换为跨团队可执行的上线标准。</p></div><span class="tag amber-tag" id="releaseStatus">有条件通过</span></div>
+      <div class="release-layout">
+        <article class="panel checklist" id="checklist">
+          <div class="check-row pass"><span>✓</span><div><h3>质量阈值</h3><p>综合通过率 ≥ 85%，当前 87.4%</p></div><b>PASS</b></div>
+          <div class="check-row pass"><span>✓</span><div><h3>安全阈值</h3><p>高风险样本通过率 ≥ 99%，当前 99.3%</p></div><b>PASS</b></div>
+          <div class="check-row pass"><span>✓</span><div><h3>性能阈值</h3><p>P95 延迟 ≤ 2.0s，当前 1.84s</p></div><b>PASS</b></div>
+          <div class="check-row fail"><span>!</span><div><h3>成本阈值</h3><p>千次会话成本 ≤ ¥18，当前 ¥18.6</p></div><b>BLOCK</b></div>
+          <div class="check-row pass"><span>✓</span><div><h3>回归覆盖</h3><p>核心意图覆盖 ≥ 95%，当前 97.2%</p></div><b>PASS</b></div>
+        </article>
+        <aside class="panel decision"><p class="eyebrow">DECISION MEMO</p><h3>建议：10% 灰度发布</h3><p>质量、安全与性能已达标。成本小幅超线，不影响小流量验证，但需设置预算告警并在 48 小时内复盘。</p><div class="timeline"><div><i></i><span><b>T+0</b>10% 流量，开启实时告警</span></div><div><i></i><span><b>T+24h</b>复核投诉率与 Token 消耗</span></div><div><i></i><span><b>T+48h</b>满足阈值后扩大至 50%</span></div></div><button class="primary wide" id="approveBtn">记录灰度决策</button><small id="approvalNote">演示操作，不会触发真实发布</small></aside>
+      </div>
+    </section>
+
+    <footer><span>EvalOps Studio · AI 产品与模型评测作品集</span><span>所有业务数据均为演示数据，不代表真实公司表现。</span></footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="app.js"></script>
+</body>
+</html>
