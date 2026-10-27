@@ -1,0 +1,10 @@
+{
+  "disclaimer": "Illustrative portfolio data only",
+  "scenario": "customer-service-agent",
+  "dataset_size": 1000,
+  "candidates": [
+    {"name":"Model A","prompt":"v2.4","task_completion":91.2,"factuality":94.1,"safety":99.3,"p95_latency_s":1.84,"cost_per_1k_cny":18.6,"decision":"recommended"},
+    {"name":"Model B","prompt":"v2.4","task_completion":93.8,"factuality":95.6,"safety":99.5,"p95_latency_s":3.26,"cost_per_1k_cny":36.4,"decision":"shadow-test"},
+    {"name":"Model C","prompt":"v2.3","task_completion":82.7,"factuality":87.9,"safety":97.8,"p95_latency_s":1.21,"cost_per_1k_cny":8.9,"decision":"hold"}
+  ]
+}
