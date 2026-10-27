@@ -1,0 +1,8 @@
+{
+  "disclaimer": "Illustrative portfolio data only",
+  "items": [
+    {"id":"BC-1048","severity":"high","status":"open","category":"retrieval","title":"Unsupported refund promise","action":"Add mandatory policy evidence check and human handoff fallback"},
+    {"id":"BC-1031","severity":"medium","status":"open","category":"context","title":"Device model lost in multi-turn chat","action":"Preserve product entities and add 20 regression samples"},
+    {"id":"BC-0996","severity":"low","status":"closed","category":"instruction","title":"Answer is verbose and hides key steps","action":"Use conclusion-first structured output"}
+  ]
+}
