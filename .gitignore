@@ -1,0 +1,5 @@
+.env
+.env.local
+build/
+*.tar.gz
+node_modules/
