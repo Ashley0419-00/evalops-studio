@@ -6,6 +6,7 @@
   <meta name="description" content="EvalOps Studio：AI 模型评测、Bad Case 分析、Prompt 版本和发布门禁作品集。">
   <title>EvalOps Studio · AI 模型评测与运营平台</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="runtime.css">
 </head>
 <body>
   <aside class="sidebar">
@@ -29,13 +30,14 @@
         <h1 id="page-title">评测运营总览</h1>
       </div>
       <div class="top-actions">
-        <span class="demo-pill">ILLUSTRATIVE DATA</span>
+        <span class="demo-pill" id="apiStatus">CHECKING API</span>
         <select id="scenarioSelect" aria-label="选择评测场景">
           <option value="service">智能客服 Agent</option>
           <option value="sales">销售助手 Agent</option>
           <option value="knowledge">企业知识问答</option>
         </select>
-        <button class="primary" id="runBtn">运行评测</button>
+        <a class="signin" id="signInLink" href="/signin-with-chatgpt?return_to=/" target="_top">登录运行</a>
+        <button class="primary" id="runBtn">运行真实评测</button>
       </div>
     </header>
 
@@ -99,6 +101,10 @@
         <article class="panel insight-card"><p class="eyebrow">PRODUCT INSIGHT</p><h3>为什么选择 A？</h3><p>方案 B 的质量领先 2.6 分，但延迟和成本分别高出 77% 与 96%。在客服高频场景中，方案 A 达到质量阈值且单位经济性更优。</p><div class="callout">决策原则：先满足质量底线，再优化成本与体验。</div></article>
         <article class="panel coverage"><p class="eyebrow">DATASET</p><h3>测试集覆盖</h3><div class="coverage-num">1,000<small>条标注样本</small></div><div class="barline"><span>高频问答</span><i><b style="width:44%"></b></i><em>44%</em></div><div class="barline"><span>复杂多轮</span><i><b style="width:31%"></b></i><em>31%</em></div><div class="barline"><span>边界安全</span><i><b style="width:25%"></b></i><em>25%</em></div></article>
       </div>
+      <article class="panel live-runs">
+        <div class="panel-title"><div><p class="eyebrow">PERSISTED RUNS</p><h3>数据库评测记录</h3></div><button class="secondary" id="refreshRuns">刷新</button></div>
+        <div class="table-wrap"><table class="run-table"><thead><tr><th>运行</th><th>模型</th><th>状态</th><th>通过率</th><th>P95 延迟</th><th>成本估算</th><th>报告</th></tr></thead><tbody id="runsTable"><tr><td colspan="7">正在读取后端…</td></tr></tbody></table></div>
+      </article>
     </section>
 
     <section class="view" id="badcases">
@@ -135,7 +141,7 @@
       </div>
     </section>
 
-    <footer><span>EvalOps Studio · AI 产品与模型评测作品集</span><span>所有业务数据均为演示数据，不代表真实公司表现。</span></footer>
+    <footer><span>EvalOps Studio · 可运行的全栈 AI EvalOps MVP</span><span>概览含演示案例；登录后的评测记录来自真实模型调用并持久化存储。</span></footer>
   </main>
   <div class="toast" id="toast" role="status"></div>
   <script src="app.js"></script>
