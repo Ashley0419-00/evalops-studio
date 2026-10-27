@@ -1,6 +1,6 @@
 # EvalOps Studio
 
-一个面向 **AI 产品经理 / 大模型评测 / AI 项目经理 / 模型平台运营** 岗位的可运行全栈作品集。它把模型评测从“跑分表”扩展为完整的产品决策闭环：指标设计 → 真实模型调用 → Bad Case 归因 → Prompt 迭代 → 发布门禁。
+EvalOps Studio 是一个面向大模型应用团队的评测与发布决策平台，覆盖评测集管理、模型调用、指标对比、Bad Case 归因、Prompt 版本迭代与发布门禁，帮助团队将分散的测试结果转化为可追踪的产品决策。
 
 **在线体验：[EvalOps Studio](https://evalops-studio-ashley.briskyew12.chatgpt.site/)**
 
